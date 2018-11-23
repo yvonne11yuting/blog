@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import PostLink from "../components/post_link"
 import Layout from "../components/layout"
-
+import Image from "../components/image"
 const IndexPage = ({
   data: {
     allMarkdownRemark: { edges },
@@ -14,6 +14,7 @@ const IndexPage = ({
 
   return (
     <Layout>
+      <Image/>
       <div>{Posts}</div>
     </Layout>
   )
