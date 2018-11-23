@@ -6,7 +6,7 @@ import Image from '../components/image'
 
 const IndexPage = () => (
   <Layout>
-    <h1>大家好</h1>
+    <h1>Is Title</h1>
     <p>部落格123</p>
     <div>
       <Image />
