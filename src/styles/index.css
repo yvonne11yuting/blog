@@ -1,0 +1,19 @@
+@import "./normalize.css";
+
+header {
+  background: #00a5be;
+  display: flex;
+  h1 {
+    margin: 10px;
+    font-size: 18px;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+pre {
+  padding: 10px;
+  background: #eee;
+}

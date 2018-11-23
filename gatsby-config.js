@@ -1,9 +1,32 @@
+
+const autoprefixer = require('autoprefixer')
+const postcssPresetEnv = require('postcss-preset-env')
+const precss = require('precss')
+
 module.exports = {
   siteMetadata: {
     title: `Yvonne`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-postcss',
+      options: {
+        postCssPlugins: [
+          precss(),
+          autoprefixer({
+            browsers: ['last 4 versions'],
+            grid: true
+          }),
+          postcssPresetEnv({
+            stage: 0,
+            features: {
+              'nesting-rules': true
+            }
+          })
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
