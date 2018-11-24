@@ -23,10 +23,17 @@ const Image = () => (
               ...GatsbyImageSharpFixed
             }
           }
+        },
+        banner: file(relativePath: { eq: "banner.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 700) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     `}
-    render={data => <Img fixed={data.coffee.childImageSharp.fixed} />}
+    render={data => <Img fluid={data.banner.childImageSharp.fluid} />}
   />
 )
 export default Image

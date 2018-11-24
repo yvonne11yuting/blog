@@ -29,9 +29,9 @@ const Layout = ({ children }) => (
           <html lang="zh-TW" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div>
+        <main>
           {children}
-        </div>
+        </main>
       </>
     )}
   />

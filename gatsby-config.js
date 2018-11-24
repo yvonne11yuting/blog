@@ -5,7 +5,7 @@ const precss = require('precss')
 
 module.exports = {
   siteMetadata: {
-    title: `Yvonne`,
+    title: `Yvonne / しずえ`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

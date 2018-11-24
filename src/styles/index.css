@@ -1,14 +1,52 @@
 @import "./normalize.css";
+$basic-bg: #3f3f3f;
+$header-height: 3rem;
 
-header {
-  background: #00a5be;
+html {
+  font-size: 15px;
+}
+
+body, .header {
+  background: $basic-bg;
+}
+
+li, p {
+  line-height: 1.5;
+}
+
+main {
+  padding-top: $header-height;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $header-height;
+  align-items: center;
+  padding: 0 1rem;
   display: flex;
   h1 {
-    margin: 10px;
     font-size: 18px;
   }
   a {
     text-decoration: none;
     color: #fff;
+  }
+}
+
+.blog-post {
+  padding: 3rem;
+  background: #efefef;
+  tr {
+    border-bottom: 1px solid #777;
+  }
+}
+
+.post-list {
+  color: #fff;
+  a {
+    color: inherit;
   }
 }
