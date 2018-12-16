@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="zh-TW"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/blog/app.319712d3e7fffa8163a7.css">code[class*=language-],pre[class*=language-]{color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{background:#073642}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#073642}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{color:#657b83;background:#eee8d5}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.0.50"/><title data-react-helmet="true">YuTing</title><meta data-react-helmet="true" name="description" content="Yvonne&#x27;s blog"/><link rel="shortcut icon" href="/blog/icons/icon-48x48.png"/><link rel="manifest" href="/blog/manifest.webmanifest"/><meta name="theme-color" content="#00a5be"/><link as="script" rel="preload" href="/blog/component---src-templates-blog-template-js-9e3bd79d15e1fb918a11.js"/><link as="script" rel="preload" href="/blog/0-02112589401d2e751f04.js"/><link as="script" rel="preload" href="/blog/app-307c5ee6e9ff5d3a31a5.js"/><link as="script" rel="preload" href="/blog/webpack-runtime-5177511170e665f06203.js"/><link rel="preload" href="/blog/static/d/238/path---git-8-d-4-a1f-ghOeKIi9stjKMQ8JnnqmfKUZOQk.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><header class="header"><h1><a href="/blog/">YuTing</a></h1><nav><a href="/blog/posts">文章列表</a><a href="/blog/tags">標籤索引</a></nav></header><main><div class="main-content blog-post"><h1>git指令筆記</h1><h2>December 16, 2018</h2><div class="blog-post-content"><h2>git筆記</h2>
+<h3>git push</h3>
+<ul>
+<li>
+<p>將commit的內容推上遠端repo</p>
+<ul>
+<li>-u: 將遠端repo branch設為追蹤目標</li>
+<li>
+<p>--delete origin [branch name]: 移除遠端branch</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span></code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>遠端repo建立新branch</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> push origin master:<span class="token punctuation">[</span>branch name<span class="token punctuation">]</span></code></pre></div>
+<p>以上指令等同於</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> checkout -b <span class="token punctuation">[</span>branch name<span class="token punctuation">]</span>
+<span class="token function">git</span> push origin <span class="token punctuation">[</span>branch name<span class="token punctuation">]</span></code></pre></div>
+<p>※ 建立完branch別忘了clone</p>
+</li>
+</ul>
+<h3>git clone</h3>
+<p>複製已存在的remote repo到本地端</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token punctuation">[</span>url<span class="token punctuation">]</span></code></pre></div>
+<h3>git pull</h3>
+<p>把遠端repo修改的內容合併到本地端，等同於fetch + merge</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> pull <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span></code></pre></div>
+<ul>
+<li>
+<p>--rebase: 從遠端repo更新時減少不必要的merge，即：</p>
+<ol>
+<li>把本地repo從上次pull後的變更儲存</li>
+<li>回復至上次pull時的狀態</li>
+<li>套用遠端的變更</li>
+<li>再套用剛剛站存下來的本地變更</li>
+</ol>
+</li>
+</ul>
+<h3>git add (add files to stage)</h3>
+<ul>
+<li>[path]: 增加檔案或目錄到stage</li>
+<li>-u: 不處理untracked的檔案</li>
+<li>-A / . :不管tracked或是untracked的檔案都加到stage上</li>
+</ul>
+<h3>git commit (staged)</h3>
+<p>提交加到stage的檔案</p>
+<ul>
+<li>-m : 可以直接添加commit message</li>
+</ul>
+<h3>git branch</h3>
+<p>列出目前本地端所有的branch</p>
+<ul>
+<li>-r: 列出remote repo 所有branch</li>
+<li>-d [branch]: 移除本地端branch</li>
+</ul>
+<h3>git checkout</h3>
+<ul>
+<li>[branch name]: 切換branch</li>
+<li>[filename]: 還原本地端修改的檔案內容</li>
+</ul>
+<h3>git merge</h3>
+<p>合併branch</p>
+<ul>
+<li>--no-ff [branch name]: 保留branch合併的記錄，merge後會產生新的commit
+<img src="https://i.stack.imgur.com/FMD5h.png" alt="image"></li>
+</ul>
+<blockquote>
+<p>reference: <a href="https://stackoverflow.com/questions/9069061/what-is-the-difference-between-git-merge-and-git-merge-no-ff">What is the difference between <code class="language-text">git merge</code> and <code class="language-text">git merge --no-ff</code>?</a></p>
+</blockquote>
+<h3>git rebase</h3>
+<p>與git merge類似都有合併branch的功能，差異點在於：</p>
+<ul>
+<li>merge: 修改的歷史記錄會維持原狀，但合併後的記錄會變得更複雜</li>
+<li>
+<p>rebase: 修改內容的歷史記錄會接在要合併的分支後面，合併後的記錄會比較清楚，但會比使用merge更容易發生衝突</p>
+<ul>
+<li>git rebase -i [commit hash]: 精簡commit記錄，commit hash指定要合併的最早節點，合併HEAD到指定的commit節點，接著進入編輯模式</li>
+<li>pick: 直接使用這個commit，不做任何調整</li>
+<li>reword: 使用這個commit，只調整commit message</li>
+<li>squash: 使用這個commit並融入前一個commit中，合併兩個commit message（可以修改)</li>
+<li>fixup: 使用這個commit並融入前一個commit中，合併兩個commit message（不能修改)</li>
+<li>drop: 直接移除這個commit</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>reference: <a href="https://dotblogs.com.tw/wasichris/2016/05/04/re">[Git] Rebase - 使用 Interactive 模式來精簡 commit 紀錄</a></p>
+</blockquote>
+<h3>git status</h3>
+<p>顯示目前修改的檔案清單</p>
+<h3>git diff</h3>
+<p>顯示修改的檔案差異</p>
+<ul>
+<li>--staged/--cached: 已經上stage的檔案列出差異</li>
+</ul>
+<h3>git reset</h3>
+<ul>
+<li>--mixed: 還原已經add至stage的檔案，仍保存修改 (default)</li>
+<li>--hard: 還原已經add至stage的檔案，並捨棄之前的修改</li>
+</ul>
+<h3>git revert</h3>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> revert <span class="token punctuation">[</span>commit hash<span class="token punctuation">]</span></code></pre></div>
+<p>建立一個新的commit來還原已經commit的修改(尚未執行git push)</p>
+<h3>git mv</h3>
+<p>重新命名或搬移檔案</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">mv</span> <span class="token punctuation">[</span>origin file<span class="token punctuation">]</span> <span class="token punctuation">[</span>rename file/destination<span class="token punctuation">]</span></code></pre></div>
+<h3>git log</h3>
+<p>觀看commit的log記錄</p>
+<ul>
+<li>[remote/branch]: 查看特定的branch log</li>
+<li>--oneline: 只顯示hash和log message</li>
+<li>--author="username": 顯示特定開發者的commit log</li>
+</ul>
+<h3>tig</h3>
+<p>需另外安裝，maxOS安裝tig透過brew，指令如下：</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">brew <span class="token function">install</span> tig</code></pre></div>
+<p>可以代替git log, git diff 以及 git blame等指令直接瀏覽commit記錄</p>
+<ul>
+<li>q: 離開</li>
+<li>j/k: 上下移動</li>
+<li>return/enter: 查看commit的詳細內容</li>
+<li>t: 對選中的commit按<strong>t</strong>進入tree view，可以查看當時repo的內容</li>
+<li>C: tig後若有接branch名稱，直接在該commit上按大寫<strong>C</strong>可以cherry-pick回目前的branch</li>
+</ul>
+<h3>git stash</h3>
+<p>暫存修改不commit</p>
+<ul>
+<li>list: 列出暫存的項目</li>
+<li>apply: 使用暫存的修改但不移除stash，可指定stash使用，如：<code class="language-text">git stash apply stash@{0}</code></li>
+<li>pop: 使用暫存的stash並從stash移除</li>
+<li>drop: 移除stash上的項目，並可指定stash，如：<code class="language-text">git stash drop stash@{0}</code></li>
+<li>
+<p>stash show -p stash@{0}: 查看已儲存的stash@{0}和目前本地repo的diff</p>
+<ul>
+<li><code class="language-text">git stash show -p stash@{0}</code> 等同於 <code class="language-text">git show stash@{0}</code></li>
+</ul>
+</li>
+</ul>
+<h3>git apply</h3>
+<p>使用補丁(patch)。前置作業：</p>
+<ul>
+<li>產生補丁: 透過<code class="language-text">git diff &gt; xxx.patch</code>產生補丁檔</li>
+<li>使用補丁: <code class="language-text">git apply xxx.patch</code></li>
+</ul>
+<h3>git blame</h3>
+<ul>
+<li>[file name]: 查看每行修改記錄</li>
+<li>
+<p>-L [start line],[end line]: 指定行數</p>
+<ul>
+<li>範例：<code class="language-text">git blame -L 5,10 index.js</code></li>
+</ul>
+</li>
+</ul>
+<h3>git cherry-pick</h3>
+<ul>
+<li>[commit hash...]: 只選擇特定branch的commit合併，多筆以空格區隔</li>
+<li>--no-commit: 合併過來的commit先不要commit</li>
+</ul>
+<blockquote>
+<p>reference: <a href="https://gitbook.tw/chapters/faq/cherry-pick.html">【狀況題】如果你只想要某個分支的某幾個 Commit？</a></p>
+</blockquote>
+<h3>git reflog</h3>
+<p>查看自己過去的git操作記錄</p>
+<h3>git tag</h3>
+<p>指向某個commit的指標</p>
+<ul>
+<li>[tag name] [commit hash]: 建立沒有附註的tag</li>
+<li>[tag name] [commit hash] -a -m '[messages]': 建立有附註的tag<br>
+※ 如果沒有特別加commit hash，tag會下在當前的commit上</li>
+<li>-d [tag name]: 移除tag</li>
+<li>git show [tag name]: 顯示特定tag的commit
+<br>
+<strong>用途：</strong></li>
+<li>
+<p>可使用git reset --hard [tag name] 和 git checkout [tag name]結合使用，將專案回復至先前commit的版本</p>
+<blockquote>
+<p>reference: <a href="http://www.cnblogs.com/zqzjs/p/6812214.html">Git配合Tag的代码回滚</a></p>
+</blockquote>
+</li>
+</ul></div></div></main></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-template-js","jsonName":"git-8d4","path":"/git"};window.dataPath="238/path---git-8-d-4-a1f-ghOeKIi9stjKMQ8JnnqmfKUZOQk";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app.319712d3e7fffa8163a7.css","/app-307c5ee6e9ff5d3a31a5.js"],"component---src-templates-blog-template-js":["/component---src-templates-blog-template-js-9e3bd79d15e1fb918a11.js"],"component---src-templates-tags-js":["/component---src-templates-tags-js-dae9f7e827e652b0bb68.js"],"component---src-pages-404-js":["/component---src-pages-404-js-5ebd1c3f9b5a0997dd6c.js"],"component---src-pages-index-js":["/component---src-pages-index-js.c3ff835746e4b9d787cc.css","/component---src-pages-index-js-b222a3b98a86187ed300.js"],"component---src-pages-posts-js":["/component---src-pages-posts-js-8f269f4ab4ab73a4b26d.js"],"component---src-pages-tags-js":["/component---src-pages-tags-js-d5885076e50b83c8c1be.js"]};/*]]>*/</script><script src="/blog/webpack-runtime-5177511170e665f06203.js" async=""></script><script src="/blog/app-307c5ee6e9ff5d3a31a5.js" async=""></script><script src="/blog/0-02112589401d2e751f04.js" async=""></script><script src="/blog/component---src-templates-blog-template-js-9e3bd79d15e1fb918a11.js" async=""></script></body></html>
