@@ -8,6 +8,10 @@ const Header = ({siteTitle}) => (
             {siteTitle}
           </Link>
         </h1>
+        <nav>
+          <Link to="/posts">文章列表</Link>
+          <Link to="/tags">標籤索引</Link>
+        </nav>
       </header>
 )
 

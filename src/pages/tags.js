@@ -14,8 +14,8 @@ const TagsPage = ({
   },
 }) => (
   <Layout>
-    <div>
-      <h1>Tags</h1>
+    <div className="main-content">
+      <h1>標籤索引</h1>
       <ul className="post-list">
         {group.map(tag => (
           <li key={tag.fieldValue}>

@@ -17,7 +17,9 @@ const IndexPage = ({
   return (
     <Layout>
       <Image/>
-      <ul className="post-list">{Posts}</ul>
+      <div className="main-content">
+        <ul className="post-list">{Posts}</ul>
+      </div>
     </Layout>
   )
 }
