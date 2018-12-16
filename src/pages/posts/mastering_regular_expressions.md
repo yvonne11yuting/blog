@@ -2,6 +2,7 @@
 path: "/regex"
 date: "2018-11-24"
 title: "Regular Expressions"
+tags: ["regex", "note", "markdown"]
 ---
 
 ## grep / egrep / fgrep  文本搜尋工具

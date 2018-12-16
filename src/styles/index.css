@@ -1,5 +1,6 @@
 @import "./normalize.css";
-$basic-bg: #3f3f3f;
+$basic-bg: #efefef;
+$basic-color: #333;
 $header-height: 3rem;
 
 html {
@@ -25,14 +26,15 @@ main {
   left: 0;
   height: $header-height;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 2rem;
   display: flex;
+  box-shadow: 0px 0px 1px 0px #00000080;
   h1 {
     font-size: 18px;
   }
   a {
     text-decoration: none;
-    color: #fff;
+    color: $basic-color;
   }
 }
 
@@ -45,8 +47,14 @@ main {
 }
 
 .post-list {
-  color: #fff;
+  color: $basic-color;
   a {
     color: inherit;
   }
+}
+
+/* markdowm */
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 0.1em;
 }

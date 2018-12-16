@@ -2,6 +2,7 @@
 path: "/test"
 date: "2018-11-23"
 title: "My first blog post"
+tags: ["test", "markdown"]
 ---
 
 ## Gatsby Test

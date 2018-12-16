@@ -5,7 +5,7 @@ const precss = require('precss')
 
 module.exports = {
   siteMetadata: {
-    title: `Yvonne / しずえ`,
+    title: `YuTing`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -87,8 +87,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Yvonne',
-        short_name: 'Yvonne',
+        name: 'yuting',
+        short_name: 'yuting',
         start_url: '/',
         background_color: '#00a5be',
         theme_color: '#00a5be',
