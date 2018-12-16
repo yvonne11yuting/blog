@@ -56,6 +56,10 @@ main {
   tr {
     border-bottom: 1px solid #777;
   }
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .post-list {
