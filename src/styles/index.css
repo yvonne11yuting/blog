@@ -1,18 +1,26 @@
 @import "./normalize.css";
-$basic-bg: #efefef;
+$basic-bg: #fff;
 $basic-color: #333;
+$basic-border: #ddd;
 $header-height: 3rem;
+$default-width: 850px;
 
-html {
+* {
   font-size: 15px;
 }
 
-body, .header {
+body {
+  max-width: $default-width;
+  margin: 0 auto;
   background: $basic-bg;
 }
 
 li, p {
   line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
 }
 
 main {
@@ -29,36 +37,30 @@ main {
   top: 0;
   right: 0;
   left: 0;
-  height: $header-height;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
+  background: #333;
   box-shadow: 0px 0px 1px 0px #00000080;
-  h1 {
-    font-size: 18px;
-  }
-  a {
-    text-decoration: none;
-    color: $basic-color;
 
-    + a {
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    max-width: $default-width;
+    padding: 0 2rem;
+    margin: 0 auto;
+  }
+
+  .header-title {
+    font-size: 18px;
+    color: $basic-bg;
+  }
+
+  .header-link {
+    color: $basic-bg;
+
+    + .header-link {
       margin-left: 10px;
     }
-  }
-}
-
-.blog-post {
-  h1 {
-    font-size: 42px;
-  }
-
-  tr {
-    border-bottom: 1px solid #777;
-  }
-
-  img {
-    max-width: 100%;
   }
 }
 
@@ -70,7 +72,36 @@ main {
 }
 
 /* markdowm */
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 0.1em;
+.blog-post {
+  h1 {
+    font-size: 42px;
+  }
+
+  code.language-text {
+    color: #bf0207;
+    background: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    background: rgba(255, 255, 2555, .8);
+  }
+
+  thead {
+    background: #ffe1e1;
+  }
+
+  tr {
+    border-bottom: 1px solid $basic-border;
+  }
+
+  th, td {
+    padding: 10px 16px;
+    text-align: left;
+  }
+
+  img {
+    max-width: 100%;
+  }
 }
+
