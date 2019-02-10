@@ -3,7 +3,7 @@ $basic-bg: #fff;
 $basic-color: #333;
 $basic-border: #ddd;
 $header-height: 3rem;
-$default-width: 850px;
+$default-width: 960px;
 
 * {
   font-size: 15px;
@@ -28,7 +28,6 @@ main {
 }
 
 .main-content {
-  max-width: 740px;
   margin: 0 auto;
 }
 
