@@ -37,6 +37,14 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 250)
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
+            cover_image {
+              publicURL
+              childImageSharp {
+                sizes(maxWidth: 320 ) {
+                  srcSet
+                }
+              }
+            }
             path
             title
           }
