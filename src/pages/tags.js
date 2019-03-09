@@ -1,10 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-
-// Utilities
 import kebabCase from "lodash/kebabCase"
-
-// Components
 import Layout from "../components/layout"
 import { Link, graphql } from "gatsby"
 
@@ -15,11 +11,10 @@ const TagsPage = ({
 }) => (
   <Layout>
     <div className="main-content">
-      <h1>標籤索引</h1>
-      <ul className="post-list">
+      <ul className="list-all">
         {group.map(tag => (
           <li key={tag.fieldValue}>
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+            <Link to={`/tags/${kebabCase(tag.fieldValue)}/`} className="list-all-item-link">
               {tag.fieldValue} ({tag.totalCount})
             </Link>
           </li>

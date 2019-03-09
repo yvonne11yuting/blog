@@ -1,8 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import PostLink from "../components/post_link"
+import PostItem from "../components/PostItem"
 import Layout from "../components/layout"
-import Image from "../components/image"
 import "../styles/index.css"
 
 const IndexPage = ({
@@ -11,12 +10,10 @@ const IndexPage = ({
   },
 }) => {
   const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+    .map(edge => <PostItem key={edge.node.id} post={edge.node} />)
 
   return (
     <Layout>
-      <Image/>
       <div className="main-content">
         <ul className="post-list">{Posts}</ul>
       </div>

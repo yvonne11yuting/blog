@@ -1,13 +1,17 @@
-@import "./normalize.css";
-$basic-bg: #efefef;
+$basic-bg: #fff;
 $basic-color: #333;
-$header-height: 3rem;
+$basic-border: #ddd;
+$header-height: 45px;
+$default-width: 960px;
 
-html {
+:root {
   font-size: 15px;
+  font-family: 'Roboto', sans-serif;
 }
 
-body, .header {
+body {
+  max-width: $default-width;
+  margin: 0 auto;
   background: $basic-bg;
 }
 
@@ -15,12 +19,15 @@ li, p {
   line-height: 1.5;
 }
 
+a {
+  text-decoration: none;
+}
+
 main {
-  padding-top: $header-height;
+  padding: $header-height 40px;
 }
 
 .main-content {
-  max-width: 740px;
   margin: 0 auto;
 }
 
@@ -29,32 +36,71 @@ main {
   top: 0;
   right: 0;
   left: 0;
-  height: $header-height;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
+  background: #333;
   box-shadow: 0px 0px 1px 0px #00000080;
-  h1 {
-    font-size: 18px;
-  }
-  a {
-    text-decoration: none;
-    color: $basic-color;
 
-    + a {
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    max-width: $default-width;
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  .header-title {
+    font-size: 18px;
+    color: $basic-bg;
+  }
+
+  .header-link {
+    color: $basic-bg;
+    padding: 5px;
+
+    + .header-link {
       margin-left: 10px;
+    }
+
+    &.active {
+      border-bottom: 2px solid #fff;
     }
   }
 }
 
+/* markdowm */
 .blog-post {
+  padding-top: 20px;
+
   h1 {
-    font-size: 42px;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  code.language-text {
+    color: #bf0207;
+    background: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    background: rgba(255, 255, 2555, .8);
+  }
+
+  thead {
+    background: #ffe1e1;
   }
 
   tr {
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid $basic-border;
+  }
+
+  th, td {
+    padding: 10px 16px;
+    text-align: left;
   }
 
   img {
@@ -63,14 +109,39 @@ main {
 }
 
 .post-list {
+  margin: 0;
+  padding: 0;
   color: $basic-color;
-  a {
-    color: inherit;
+}
+
+/* PostItem */
+.post-item {
+  list-style-type: none;
+  border-bottom: 1px solid #efefef;
+}
+
+.post-item-link {
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.post-item-date {
+  color: #888;
+}
+
+.post-item-content {
+  padding: 10px 0;
+  letter-spacing: .5px;
+}
+
+/* list-all (posts & tags) */
+.list-all-item-link {
+  color: $basic-color;
+  &:hover {
+    text-decoration: underline;
   }
 }
 
-/* markdowm */
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 0.1em;
+.list-all-item-date {
+  margin-right: 20px;
 }

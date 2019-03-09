@@ -26,7 +26,8 @@ const Layout = ({ children }) => (
             }
           ]}
         >
-          <html lang="zh-TW" />
+          <html lang="zh-Hant-TW" />
+          <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"></link>
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <main>

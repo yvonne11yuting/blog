@@ -1,32 +1,30 @@
 import React from "react"
+import Layout from "../components/layout";
+import { graphql, Link } from "gatsby";
 
-// Components
-import Layout from "../components/layout"
-import { graphql } from "gatsby"
-import PostLink from "../components/post_link"
-
-const TagsPage = ({
+const Posts = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
   const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+    .map(edge => (
+      <li key={ edge.node.id }>
+        <Link to={edge.node.frontmatter.path} className="list-all-item-link">
+          <span className="list-all-item-date">{ edge.node.frontmatter.date }</span>
+          { edge.node.frontmatter.title }
+        </Link>
+      </li>
+    ));
 
   return (
     <Layout>
-      <div className="main-content">
-        <h1>文章列表</h1>
-        <div className="main-content">
-          <ul className="post-list">{Posts}</ul>
-        </div>
-      </div>
+        <ul className="list-all">{Posts}</ul>
     </Layout>
   )
 }
 
-export default TagsPage
+export default Posts
 
 export const pageQuery = graphql`
   query {
