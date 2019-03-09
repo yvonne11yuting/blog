@@ -11,7 +11,7 @@ const Posts = ({
     .map(edge => (
       <li key={ edge.node.id }>
         <Link to={edge.node.frontmatter.path} className="list-all-item-link">
-          <span>{ edge.node.frontmatter.date }</span>
+          <span className="list-all-item-date">{ edge.node.frontmatter.date }</span>
           { edge.node.frontmatter.title }
         </Link>
       </li>

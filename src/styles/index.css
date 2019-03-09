@@ -141,3 +141,7 @@ main {
     text-decoration: underline;
   }
 }
+
+.list-all-item-date {
+  margin-right: 20px;
+}
