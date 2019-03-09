@@ -3,17 +3,17 @@ import { Link } from 'gatsby'
 
 const Header = ({siteTitle}) => (
   <header className="header">
-    <div class="header-container">
+    <div className="header-container">
       <Link
-        class="header-title"
+        className="header-title"
         activeClassName="header-title"
         to="/">{siteTitle}</Link>
       <nav>
         <Link
-          class="header-link"
+          className="header-link"
           to="/posts">文章列表</Link>
         <Link
-          class="header-link"
+          className="header-link"
           to="/tags"
         >標籤索引</Link>
       </nav>
