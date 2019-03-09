@@ -1,49 +1,37 @@
 import React from "react"
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import Layout from "../components/layout";
+import PostItem from "../components/PostItem"
 
 // Components
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-const Tags = ({ pageContext, data }) => {
+const TagsTemplate = ({ pageContext, data }) => {
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  const { edges } = data.allMarkdownRemark
+  const Posts = edges.map(edge => <PostItem key={edge.node.id} post={edge.node} />)
 
   return (
-    <div>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { path, title } = node.frontmatter
-          return (
-            <li key={path}>
-              <Link to={path}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-      {/*
-              This links to a page that does not yet exist.
-              We'll come back to it!
-            */}
-      <Link to="/tags">All tags</Link>
-    </div>
+    <Layout>
+      <h1>{tag}</h1>
+      <div className="main-content">
+        <ul className="post-list">{Posts}</ul>
+      </div>
+    </Layout>
   )
 }
 
-Tags.propTypes = {
-  pathContext: PropTypes.shape({
+TagsTemplate.propTypes = {
+  pageContext: PropTypes.shape({
     tag: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
             frontmatter: PropTypes.shape({
+              date: PropTypes.string.isRequired,
               path: PropTypes.string.isRequired,
               title: PropTypes.string.isRequired,
             }),
@@ -54,7 +42,7 @@ Tags.propTypes = {
   }),
 }
 
-export default Tags
+export default TagsTemplate;
 
 export const pageQuery = graphql`
   query($tag: String) {
@@ -66,7 +54,10 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          id
+          excerpt(pruneLength: 250)
           frontmatter {
+            date(formatString: "MMMM DD, YYYY")
             title
             path
           }
