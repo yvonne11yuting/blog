@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
 
-const TagsPage = ({
+const Posts = ({
   data: {
     allMarkdownRemark: { edges },
   },
@@ -10,7 +10,7 @@ const TagsPage = ({
   const Posts = edges
     .map(edge => (
       <li>
-        <Link to={edge.node.frontmatter.path} className="post-list-all-item">
+        <Link to={edge.node.frontmatter.path} className="list-all-item-link">
           <span>{ edge.node.frontmatter.date }</span>
           { edge.node.frontmatter.title }
         </Link>
@@ -19,12 +19,12 @@ const TagsPage = ({
 
   return (
     <Layout>
-        <ul className="post-list-all">{Posts}</ul>
+        <ul className="list-all">{Posts}</ul>
     </Layout>
   )
 }
 
-export default TagsPage
+export default Posts
 
 export const pageQuery = graphql`
   query {

@@ -134,8 +134,8 @@ main {
   letter-spacing: .5px;
 }
 
-/* post-list-all */
-.post-list-all-item {
+/* list-all (posts & tags) */
+.list-all-item-link {
   color: $basic-color;
   &:hover {
     text-decoration: underline;
