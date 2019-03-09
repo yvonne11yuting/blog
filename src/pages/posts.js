@@ -1,9 +1,6 @@
 import React from "react"
-
-// Components
-import Layout from "../components/layout"
-import { graphql } from "gatsby"
-import PostLink from "../components/post_link"
+import Layout from "../components/layout";
+import { graphql, Link } from "gatsby";
 
 const TagsPage = ({
   data: {
@@ -11,17 +8,18 @@ const TagsPage = ({
   },
 }) => {
   const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+    .map(edge => (
+      <li>
+        <Link to={edge.node.frontmatter.path} className="post-list-all-item">
+          <span>{ edge.node.frontmatter.date }</span>
+          { edge.node.frontmatter.title }
+        </Link>
+      </li>
+    ));
 
   return (
     <Layout>
-      <div className="main-content">
-        <h1>文章列表</h1>
-        <div className="main-content">
-          <ul className="post-list">{Posts}</ul>
-        </div>
-      </div>
+        <ul className="post-list-all">{Posts}</ul>
     </Layout>
   )
 }

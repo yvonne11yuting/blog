@@ -1,10 +1,10 @@
 $basic-bg: #fff;
 $basic-color: #333;
 $basic-border: #ddd;
-$header-height: 3rem;
+$header-height: 45px;
 $default-width: 960px;
 
-* {
+:root {
   font-size: 15px;
 }
 
@@ -23,7 +23,7 @@ a {
 }
 
 main {
-  padding-top: $header-height;
+  padding: $header-height 40px;
 }
 
 .main-content {
@@ -44,7 +44,7 @@ main {
     justify-content: space-between;
     height: $header-height;
     max-width: $default-width;
-    padding: 0 2rem;
+    padding: 0 30px;
     margin: 0 auto;
   }
 
@@ -55,24 +55,28 @@ main {
 
   .header-link {
     color: $basic-bg;
+    padding: 5px;
 
     + .header-link {
       margin-left: 10px;
     }
-  }
-}
 
-.post-list {
-  color: $basic-color;
-  a {
-    color: inherit;
+    &.active {
+      border-bottom: 2px solid #fff;
+    }
   }
 }
 
 /* markdowm */
 .blog-post {
+  padding-top: 20px;
+
   h1 {
-    font-size: 42px;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
   }
 
   code.language-text {
@@ -103,3 +107,36 @@ main {
   }
 }
 
+.post-list {
+  margin: 0;
+  padding: 0;
+  color: $basic-color;
+}
+
+/* PostItem */
+.post-item {
+  list-style-type: none;
+  border-bottom: 1px solid #efefef;
+}
+
+.post-item-link {
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.post-item-date {
+  color: #888;
+}
+
+.post-item-content {
+  padding: 10px 0;
+  letter-spacing: .5px;
+}
+
+/* post-list-all */
+.post-list-all-item {
+  color: $basic-color;
+  &:hover {
+    text-decoration: underline;
+  }
+}
