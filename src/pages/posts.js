@@ -9,7 +9,7 @@ const Posts = ({
 }) => {
   const Posts = edges
     .map(edge => (
-      <li>
+      <li key={ edge.node.id }>
         <Link to={edge.node.frontmatter.path} className="list-all-item-link">
           <span>{ edge.node.frontmatter.date }</span>
           { edge.node.frontmatter.title }
