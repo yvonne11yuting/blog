@@ -2,7 +2,7 @@
   "name": "gatsby-starter-default",
   "description": "Gatsby default starter",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "yuting <yvonne11yuting@gmail.com",
   "dependencies": {
     "autoprefixer": "^9.3.1",
     "gatsby": "^2.0.19",
@@ -41,6 +41,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/yvonne11yuting/blog"
   }
 }
