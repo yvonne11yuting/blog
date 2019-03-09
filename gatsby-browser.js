@@ -4,4 +4,5 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
+require("normalize.css");
 require("prismjs/themes/prism-tomorrow.css")
