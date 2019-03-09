@@ -2,10 +2,9 @@ const path = require("path")
 const _ = require("lodash")
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
-
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`)
-  const tagTemplate = path.resolve("src/templates/tags.js")
+  const { createPage } = actions;
+  const blogPostTemplate = path.resolve("src/templates/blogTemplate.js");
+  const tagTemplate = path.resolve("src/templates/tags.js");
   return graphql(`
     {
       allMarkdownRemark(
